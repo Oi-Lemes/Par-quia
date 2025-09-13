@@ -6,7 +6,10 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #2c5530 0%, #1a3d1f 100%);
+    background: 
+        linear-gradient(135deg, rgba(44, 85, 48, 0.9) 0%, rgba(26, 61, 31, 0.9) 100%),
+        url('https://images.pexels.com/photos/8468/bible-book-business-christian.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
+    background-attachment: fixed;
     color: #ffffff;
     min-height: 100vh;
     line-height: 1.6;
@@ -22,6 +25,20 @@ body {
     text-align: center;
     margin-bottom: 3rem;
     padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.pexels.com/photos/8468/bible-book-business-christian.jpg?auto=compress&cs=tinysrgb&w=800') center/cover;
+    opacity: 0.1;
+    z-index: -1;
 }
 
 .hero h1 {
@@ -51,7 +68,10 @@ body {
 }
 
 .book-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+        url('https://images.pexels.com/photos/1112048/pexels-photo-1112048.jpeg?auto=compress&cs=tinysrgb&w=400') center/cover;
+    background-blend-mode: overlay;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -59,18 +79,43 @@ body {
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(44, 85, 48, 0.8) 0%, rgba(26, 61, 31, 0.6) 100%);
+    z-index: 1;
+}
+
+.book-card > * {
+    position: relative;
+    z-index: 2;
 }
 
 .book-card:hover {
     transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.15);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%),
+        url('https://images.pexels.com/photos/1112048/pexels-photo-1112048.jpeg?auto=compress&cs=tinysrgb&w=400') center/cover;
+    background-blend-mode: overlay;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.book-card:hover::before {
+    background: linear-gradient(135deg, rgba(244, 208, 63, 0.3) 0%, rgba(44, 85, 48, 0.7) 100%);
 }
 
 .book-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    filter: sepia(1) hue-rotate(30deg) brightness(1.2);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .book-card h3 {
@@ -93,14 +138,38 @@ body {
 }
 
 .price-card {
-    background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);
+    background: 
+        linear-gradient(135deg, rgba(244, 208, 63, 0.95) 0%, rgba(241, 196, 15, 0.95) 100%),
+        url('https://images.pexels.com/photos/1112048/pexels-photo-1112048.jpeg?auto=compress&cs=tinysrgb&w=600') center/cover;
+    background-blend-mode: overlay;
     color: #2c5530;
     padding: 3rem;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     max-width: 400px;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.price-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.pexels.com/photos/8468/bible-book-business-christian.jpg?auto=compress&cs=tinysrgb&w=400') center/cover;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.price-card > * {
+    position: relative;
+    z-index: 2;
 }
 
 .price {
@@ -108,6 +177,7 @@ body {
     font-weight: 700;
     margin-bottom: 1.5rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .cta-button {
@@ -123,12 +193,13 @@ body {
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
     background: #1a3d1f;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .description {
@@ -140,8 +211,10 @@ body {
 .footer {
     text-align: center;
     padding: 2rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin-top: 3rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .footer p {
@@ -186,8 +259,21 @@ body {
     }
 }
 
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 .book-card {
     animation: fadeInUp 0.6s ease forwards;
+}
+
+.book-icon {
+    animation: float 3s ease-in-out infinite;
 }
 
 .book-card:nth-child(1) { animation-delay: 0.1s; }
@@ -198,3 +284,12 @@ body {
 .book-card:nth-child(6) { animation-delay: 0.6s; }
 .book-card:nth-child(7) { animation-delay: 0.7s; }
 .book-card:nth-child(8) { animation-delay: 0.8s; }
+
+.book-card:nth-child(1) .book-icon { animation-delay: 0.5s; }
+.book-card:nth-child(2) .book-icon { animation-delay: 1s; }
+.book-card:nth-child(3) .book-icon { animation-delay: 1.5s; }
+.book-card:nth-child(4) .book-icon { animation-delay: 2s; }
+.book-card:nth-child(5) .book-icon { animation-delay: 2.5s; }
+.book-card:nth-child(6) .book-icon { animation-delay: 3s; }
+.book-card:nth-child(7) .book-icon { animation-delay: 3.5s; }
+.book-card:nth-child(8) .book-icon { animation-delay: 4s; }
